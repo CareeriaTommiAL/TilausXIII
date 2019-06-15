@@ -26,5 +26,12 @@ namespace TilausXIII.Controllers
 
             return View();
         }
+
+        public ActionResult Map()
+        {
+            ViewBag.Message = "Map";
+
+            return View();
+        }
     }
 }

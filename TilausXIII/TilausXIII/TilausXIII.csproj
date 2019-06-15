@@ -47,10 +47,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -122,9 +130,43 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AsiakkaatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Asiakkaat.cs">
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Henkilot.cs">
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Postitoimipaikat.cs">
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tilaukset.cs">
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TilausDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TilausDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TilausDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TilausDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TilausDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tilausrivit.cs">
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tuotteet.cs">
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,6 +180,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\TilausDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TilausDBModel.edmx</DependentUpon>
+      <LastGenOutput>TilausDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TilausDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TilausDBModel.edmx</DependentUpon>
+      <LastGenOutput>TilausDBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -160,6 +212,13 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <EntityDeploy Include="Models\TilausDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TilausDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TilausDBModel.edmx.diagram">
+      <DependentUpon>TilausDBModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -204,16 +263,21 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\Map.cshtml" />
+    <Content Include="Views\Asiakkaat\Index.cshtml" />
+    <Content Include="Views\Asiakkaat\Edit.cshtml" />
+    <Content Include="Views\Asiakkaat\Create.cshtml" />
+    <Content Include="Views\Asiakkaat\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
