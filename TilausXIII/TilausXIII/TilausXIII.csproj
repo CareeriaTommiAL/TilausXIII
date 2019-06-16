@@ -141,6 +141,9 @@
     <Compile Include="Models\Henkilot.cs">
       <DependentUpon>TilausDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Logins.cs">
+      <DependentUpon>TilausDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Postitoimipaikat.cs">
       <DependentUpon>TilausDBModel.tt</DependentUpon>
     </Compile>
@@ -268,6 +271,7 @@
     <Content Include="Views\Asiakkaat\Edit.cshtml" />
     <Content Include="Views\Asiakkaat\Create.cshtml" />
     <Content Include="Views\Asiakkaat\Delete.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

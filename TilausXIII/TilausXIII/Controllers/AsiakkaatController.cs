@@ -14,7 +14,12 @@ namespace TilausXIII.Controllers
         // GET: Asiakkaat
         TilausDBEntities db = new TilausDBEntities();
         public ActionResult Index()
-        {           
+        {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("login", "home");
+            }
+            else ViewBag.LoggedStatus = "In";
             List<Asiakkaat> model = db.Asiakkaat.ToList();            
             return View(model);
         }
