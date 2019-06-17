@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Tilauspvm, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tilauspvm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Tilauspvm, new { type = "date" })
                 @Html.ValidationMessageFor(model => model.Tilauspvm, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Toimituspvm, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Toimituspvm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Toimituspvm, new { type = "date" })
                 @Html.ValidationMessageFor(model => model.Toimituspvm, "", new { @class = "text-danger" })
             </div>
         </div>
